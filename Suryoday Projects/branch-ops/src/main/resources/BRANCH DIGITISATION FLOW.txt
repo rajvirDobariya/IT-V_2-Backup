@@ -1,0 +1,26 @@
+=================================
+BRANCH_DIGITISATION DOCUMENTATION
+=================================
+FLOW : 
+------
+[1] The Branch Master contains a list of branches.
+[2] The Report Master contains reports on a daily, weekly, monthly, and quarterly basis.
+[3] The Holiday Master contains all holidays for the year, including national holidays, all Sundays, 2nd Saturdays, and 4th Saturdays.
+
+[4] The Scheduler is set in the backend to take all branches from the Branch Master and all reports from the Report Master to generate reports for all branches on a daily, weekly, monthly, and quarterly basis. Specifically:
+	[1] The 1st Scheduler runs daily from Monday to Saturday to generate daily reports, but if the current date is in the Holiday Master, the report is not generated on that day.
+	[2] The 2nd Scheduler runs every Monday to generate weekly reports, but if the date is in the Holiday Master, it finds the next working day and generates the report on that day.
+	[3] The 3rd Scheduler runs on the 1st day of every month to generate monthly reports, but if that date is in the Holiday Master, it finds the next working day and generates the report on that day.
+	[4] The 4th Scheduler runs on the 1st day of every quarter to generate quarterly reports, but if that date is in the Holiday Master, it finds the next working day and generates the report on that day.
+
+[5] Maker [RO], Checker [BM], and HO [CREDIT_OPS] receive reports by filtering by date range and status [Not Submitted, Pending, Pending at Checker, Pending at Maker, Submitted].
+[6] Maker [RO] uploads the report document and remarks, and that reports goes to the Checker for verification.
+[7] Checker [BM] reviews the uploaded reports by Maker [RO] and can either approve them or return them with remarks to Maker [RO].
+[8] Maker [RO] can update the returned reports by Checker [BM].
+[9] HO [CREDIT_OPS] can provide remarks and view and download Excel files of approved reports by Checker [BM] by month and branch code/branch name.
+
+=======
+ROLES :
+=======
+BRANCH_MAKER | BRANCH_CHECKER | BRANCH_HO
+-------

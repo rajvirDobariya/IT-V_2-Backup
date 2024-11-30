@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Counterfeit Banknotes Declaration</title>
+
+	<style>
+		.activity-id {
+			font-size: 18px;
+		}
+
+		.logo-container {
+			position: absolute;
+			top: 1px;
+			right: 1px;
+		}
+
+		.logo-image {
+			width: 150px;
+			height: auto;
+		}
+
+		body {
+			font-family: 'Noto Sans', sans-serif;
+			margin: 0;
+			padding: 0;
+			padding-top: 50px;
+		}
+
+		.header-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 10px;
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 10px 0;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid black;
+		}
+
+		th,
+		td {
+			padding: 4px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #f9641e;
+			color: white;
+		}
+
+		footer {
+			margin-top: 20px;
+			font-size: 0.8em;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="logo-container">
+		<img src="classpath:Suryoday-bank-logo.jpg" alt="Suryoday Bank Logo" class="logo-image">
+	</div>
+	<div class="activity-id"><strong>Activity ID:</strong> ${activityId}</div>
+	<div class="header-container">
+		<div class="logo-container"></div>
+		<center>
+			<h1>Counterfeit Declaration Form</h1>
+		</center>
+	</div>
+	<div>
+		<p>Counterfeit Banknotes Declaration Of ${dailyMonthly}</p>
+		<p>We confirm that we have ${receivedStatus} counterfeit notes for the ${dailyMonthly}.</p>
+
+		${counterfeitTable}
+		
+		${threeChecks}
+		
+		${denominationsTable}
+
+		${summaryTable}
+
+		<footer>
+			<p>Mode of verification (including the details of names and other particulars of the person with whom the
+				enquiry was conducted and other sources of information) of the above particulars: Remarks and
+				approval/rejection of the Bank personnel, with signature, name, designation, and employee number.
+				Remarks:
+				Approved Rejected Signature (Name, designation, and employee number of the official).</p>
+		</footer>
+	</div>
+</body>
+
+</html>

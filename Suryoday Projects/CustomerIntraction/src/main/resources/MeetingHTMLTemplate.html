@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Meeting Details" content="width=device-width, initial-scale=1.0">
+    <title>Minutes of Branch Level Customer Service Committee Meeting</title>
+    <style>
+    
+        .logo-container {
+		    position: absolute;
+		    top: 20px; /* Adjust top position as needed */
+		    right: 20px; /* Adjust right position as needed */
+		}
+		
+		body {
+			font-family: Arial, sans-serif;
+			margin-top: 100px; 
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 20px 0;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid black;
+		}
+
+		th,
+		td {
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #f9641e;
+			color: white;
+		}
+    </style>
+</head>
+<body>
+	<div class="logo-container">
+		<img src="classpath:Suryoday-bank-logo.jpg" alt="Suryoday Bank Logo" class="logo-image">
+	</div>
+	
+    <h1>Minutes of Branch Level Customer Service Committee Meeting - </h1>${meeting}
+    
+    <p><strong>Meeting Number:</strong>${meetingNumber}</p>
+    <p><strong>Date:</strong> ${meetingDate}</p>
+    <p><strong>Meeting Start Time:</strong> ${meetingStartDate}</p>
+    <p><strong>Meeting End Time:</strong> ${meetingEndTime}</p>
+
+    <h2>Members Present:</h2>
+    ${memberTable}
+
+    <h2>Summary of MOM:</h2>
+    ${summaryTable}
+
+    <h2>Activity Log Details:</h2>
+    ${logTable}
+    
+    <h2>Image:</h2>
+    ${images}
+    
+  
+
+    
+</body>
+</html>

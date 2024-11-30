@@ -1,0 +1,234 @@
+package com.suryoday.uam.serviceImp;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+import javax.servlet.http.HttpServletRequest;
+
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.suryoday.uam.others.GenerateProperty;
+import com.suryoday.uam.service.SendOtpService;
+
+
+
+
+@Service
+public class SendOtpServiceImpl implements SendOtpService{
+
+
+	private static Logger logger = LoggerFactory.getLogger(SendOtpServiceImpl.class);
+
+	@Override
+	public JSONObject sendOtp(JSONObject jSONObject, JSONObject header) {
+		
+		JSONObject sendResponse = new JSONObject();
+	
+		URL obj = null;
+		try {
+			
+			
+			GenerateProperty x = GenerateProperty.getInstance();
+			x.getappprop();
+			//GenerateProperty x = GenerateProperty.getInstance();
+			 x.bypassssl();
+			// Create all-trusting host name verifier
+				HostnameVerifier allHostsValid = new HostnameVerifier() {
+					public boolean verify(String hostname, SSLSession session) {
+						return true;
+					}
+				};
+				
+			
+			HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid); 
+			logger.debug(x.BASEURL+"notification/otp/sms?api_key="+x.api_key);
+			
+			 obj =new URL(x.BASEURL+"notification/otp/sms?api_key="+x.api_key);
+				HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+				con.setRequestMethod("POST");
+				con.setRequestProperty("Content-Type", "application/json");
+				con.setRequestProperty("X-Correlation-ID",header.getString("X-Correlation-ID"));
+				con.setRequestProperty("X-Request-ID", header.getString("X-Request-ID"));
+				con.setRequestProperty("X-User-ID",header.getString("X-User-ID"));
+				con.setRequestProperty("X-From-ID",header.getString("X-From-ID"));
+				con.setRequestProperty("X-To-ID",header.getString("X-To-ID"));
+				con.setRequestProperty("X-Transaction-ID",header.getString("X-Transaction-ID"));
+//				con.setRequestProperty("X-Content-Type-Options", header.getString("X-Content-Type-Options"));
+//				con.setRequestProperty("X-Frame-Options", header.getString("X-Frame-Options"));
+//				con.setRequestProperty("X-XSS-Protection", header.getString("X-XSS-Protection"));
+//				con.setRequestProperty("Strict-Transport-Security", header.getString("Strict-Transport-Security"));
+//				con.setRequestProperty("Content-Security-Policy", header.getString("Content-Security-Policy"));
+				sendResponse = getResponseData(jSONObject, sendResponse, con,"POST");
+
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return sendResponse;
+	}
+	
+
+	private static JSONObject getResponseData(JSONObject parent, JSONObject sendAuthenticateResponse,
+			HttpURLConnection con,String MethodType) throws IOException {
+		
+		con.setDoOutput(true);
+		OutputStreamWriter os = new OutputStreamWriter(con.getOutputStream());
+		os.write(parent.toString());
+		os.flush();
+		os.close();
+		
+		int responseCode = con.getResponseCode();
+		logger.debug("POST Response Code :: " + responseCode);
+		
+		
+		if (responseCode == HttpURLConnection.HTTP_OK) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+			
+			
+			JSONObject 	sendauthenticateResponse1  = new JSONObject();
+			   sendauthenticateResponse1.put("data", response.toString());
+			   sendAuthenticateResponse = sendauthenticateResponse1;
+		}
+		else
+		{
+					logger.debug("POST request not worked");
+			
+			JSONObject 	sendauthenticateResponse1  = new JSONObject();
+			 
+			 JSONObject errr = new JSONObject();
+			 errr.put("Description","Server Error "+responseCode);
+			 
+			 JSONObject j = new JSONObject();
+			 j.put("Error",errr);
+			 
+			sendauthenticateResponse1.put("data", ""+j);
+			sendAuthenticateResponse = sendauthenticateResponse1;
+		}
+		
+				return sendAuthenticateResponse;
+		
+	}
+	
+	
+
+	@Override
+	public JSONObject validateOTP(String oTP, JSONObject header) {
+		
+		JSONObject sendResponse = new JSONObject();
+		URL obj = null;
+		try {
+			GenerateProperty x = GenerateProperty.getInstance();
+			x.getappprop();
+			 x.bypassssl();
+			// Create all-trusting host name verifier
+			 HostnameVerifier allHostsValid = new HostnameVerifier() {
+					public boolean verify(String hostname, SSLSession session) {
+						return true;
+					}
+				};
+				HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid); 
+					int otp=Integer.parseInt(oTP);
+					logger.debug(x.BASEURL+"tr/OTP/validate?api_key="+x.api_key+"&OTP="+oTP+"&TransactionType=D");
+					obj =new URL(x.BASEURL+"tr/OTP/validate?api_key="+x.api_key+"&OTP="+oTP+"&TransactionType=D");
+					HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+					con.setRequestMethod("GET");
+					con.setRequestProperty("Content-Type", "application/json");
+					con.setRequestProperty("X-Correlation-ID",header.getString("X-Correlation-ID"));
+					con.setRequestProperty("X-Request-ID", header.getString("X-Request-ID"));
+					con.setRequestProperty("X-User-ID",header.getString("X-User-ID"));
+					con.setRequestProperty("X-From-ID",header.getString("X-From-ID"));
+					con.setRequestProperty("X-To-ID",header.getString("X-To-ID"));
+					con.setRequestProperty("X-Transaction-ID",header.getString("X-Transaction-ID"));
+					con.setRequestProperty("X-Transaction-ID", header.getString("X-Transaction-ID"));
+					con.setRequestProperty("X-Content-Type-Options", header.getString("X-Content-Type-Options"));
+					con.setRequestProperty("X-Frame-Options", header.getString("X-Frame-Options"));
+					con.setRequestProperty("X-XSS-Protection", header.getString("X-XSS-Protection"));
+					con.setRequestProperty("Strict-Transport-Security", header.getString("Strict-Transport-Security"));
+					con.setRequestProperty("Content-Security-Policy", header.getString("Content-Security-Policy"));
+					
+					sendResponse = getResponse(oTP, sendResponse, con,"GET");
+				
+		}
+		catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return sendResponse;
+			
+	}	
+	
+	private static JSONObject getResponse(String parent, JSONObject sendAuthenticateResponse,
+			HttpURLConnection con,String MethodType) throws IOException {
+		
+		con.setDoOutput(true);
+		//OutputStreamWriter os = new OutputStreamWriter(con.getOutputStream());
+		//os.write(parent.toString());
+		//os.flush();
+		//os.close();
+		
+		int responseCode = con.getResponseCode();
+		logger.debug("POST Response Code :: " + responseCode);
+		
+		
+		if (responseCode == HttpURLConnection.HTTP_OK) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+			
+			
+			JSONObject 	sendauthenticateResponse1  = new JSONObject();
+			   sendauthenticateResponse1.put("data", response.toString());
+			   sendAuthenticateResponse = sendauthenticateResponse1;
+		}
+		else
+		{
+					logger.debug("GET request not worked");
+			
+			JSONObject 	sendauthenticateResponse1  = new JSONObject();
+			 
+			 JSONObject errr = new JSONObject();
+			 errr.put("Description","Server Error "+responseCode);
+			 
+			 JSONObject j = new JSONObject();
+			 j.put("Error",errr);
+			 
+			sendauthenticateResponse1.put("data", ""+j);
+			sendAuthenticateResponse = sendauthenticateResponse1;
+		}
+		
+				return sendAuthenticateResponse;
+		
+	}
+
+
+	
+	
+	
+}

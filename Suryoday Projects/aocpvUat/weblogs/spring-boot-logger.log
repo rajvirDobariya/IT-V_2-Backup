@@ -1,0 +1,45 @@
+2022-08-23 16:36:53,334 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting PaymentApplication using Java 1.8.0_251 on SYLH10001L0667 with PID 2076 (D:\android\AOCPV\workspace\AOCPV\target\classes started by Vilas in D:\android\AOCPV\workspace\AOCPV)
+2022-08-23 16:36:53,335 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.0, Spring v5.3.20
+2022-08-23 16:36:53,335 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-08-23 16:36:53,747 WARN com.microsoft.sqlserver.jdbc.TDSChannel [restartedMain] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,759 WARN org.hibernate.boot.internal.InFlightMetadataCollectorImpl [restartedMain] HHH000069: Duplicate generator name uuid
+2022-08-23 16:36:53,874 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,888 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,903 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,920 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,935 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,950 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,964 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,978 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:53,995 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-8 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:36:55,292 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PaymentApplication in 1.983 seconds (JVM running for 1170.467)
+2022-08-23 16:37:06,520 TRACE com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] A TRACE Message
+2022-08-23 16:37:06,520 DEBUG com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] A DEBUG Message
+2022-08-23 16:37:06,520 INFO com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] An INFO Message
+2022-08-23 16:37:06,520 WARN com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] A WARN Message
+2022-08-23 16:37:06,520 ERROR com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] An ERROR Message
+2022-08-23 16:37:32,090 TRACE com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-1] A TRACE Message
+2022-08-23 16:37:32,090 DEBUG com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-1] A DEBUG Message
+2022-08-23 16:37:32,090 INFO com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-1] An INFO Message
+2022-08-23 16:37:32,090 WARN com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-1] A WARN Message
+2022-08-23 16:37:32,090 ERROR com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-1] An ERROR Message
+2022-08-23 16:37:41,755 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting PaymentApplication using Java 1.8.0_251 on SYLH10001L0667 with PID 16644 (D:\android\AOCPV\workspace\AOCPV\target\classes started by Vilas in D:\android\AOCPV\workspace\AOCPV)
+2022-08-23 16:37:41,756 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.0, Spring v5.3.20
+2022-08-23 16:37:41,756 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-08-23 16:37:44,222 WARN com.microsoft.sqlserver.jdbc.TDSChannel [restartedMain] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,388 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,405 WARN org.hibernate.boot.internal.InFlightMetadataCollectorImpl [restartedMain] HHH000069: Duplicate generator name uuid
+2022-08-23 16:37:44,405 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,423 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,438 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,458 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,477 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,497 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,515 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:44,531 WARN com.microsoft.sqlserver.jdbc.TDSChannel [HikariPool-1 connection adder] TLSv1 was negotiated. Please update server and client to use TLSv1.2 at minimum.
+2022-08-23 16:37:47,582 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started PaymentApplication in 6.157 seconds (JVM running for 7.045)
+2022-08-23 16:38:07,667 TRACE com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] A TRACE Message
+2022-08-23 16:38:07,667 DEBUG com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] A DEBUG Message
+2022-08-23 16:38:07,667 INFO com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] An INFO Message
+2022-08-23 16:38:07,668 WARN com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] A WARN Message
+2022-08-23 16:38:07,669 ERROR com.suryoday.aocpv.controller.AppVersionController [http-nio-8081-exec-2] An ERROR Message

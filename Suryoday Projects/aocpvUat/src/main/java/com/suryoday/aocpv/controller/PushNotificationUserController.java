@@ -1,0 +1,201 @@
+package com.suryoday.aocpv.controller;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.suryoday.aocpv.exceptionhandling.EmptyInputException;
+import com.suryoday.aocpv.pojo.NotificationUser;
+import com.suryoday.aocpv.repository.PushNotificationUserRepo;
+import com.suryoday.aocpv.service.PushNotificationUserService;
+import com.suryoday.connector.service.UserService;
+
+@Component
+@RestController
+@RequestMapping(value = "aocpv")
+public class PushNotificationUserController {
+
+	Logger logger = LoggerFactory.getLogger(PushNotificationUserController.class);
+
+	@Autowired
+	PushNotificationUserService pushnotificationservice;
+
+	@Autowired
+	PushNotificationUserRepo pushnotificationrepo;
+
+	@Autowired
+	UserService userService;
+
+	@RequestMapping(value = "/saveUser", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<Object> saveUser(@RequestBody String jsonRequest,
+			@RequestHeader(name = "Content-Type", required = true) String Content_Type,
+			@RequestHeader(name = "X-Request-ID", required = true) String X_Request_ID) {
+		System.out.println("saveUser start");
+		System.out.println("request" + jsonRequest);
+		JSONObject jsonObject = new JSONObject(jsonRequest);
+		if (jsonRequest.isEmpty()) {
+			System.out.println("request is empty" + jsonRequest);
+			throw new EmptyInputException("Input cannot be empty");
+		}
+
+		System.out.println("db Call start");
+		long pid = 1;
+		String userId = jsonObject.getJSONObject("Data").getString("UserId");
+		String tokenId = jsonObject.getJSONObject("Data").getString("TokenId");
+		String deviceId = jsonObject.getJSONObject("Data").getString("DeviceId");
+		String branchId = jsonObject.getJSONObject("Data").getString("BranchId");
+		String role = jsonObject.getJSONObject("Data").getString("Role");
+		LocalDateTime createdAt = LocalDateTime.now();
+
+		NotificationUser notificationUser = new NotificationUser();
+		Optional<Long> optional1 = pushnotificationrepo.fetchLastId();
+		if (optional1.isPresent()) {
+			pid = optional1.get();
+			pid++;
+
+		}
+		notificationUser.setPid(pid);
+		notificationUser.setUserId(userId);
+		notificationUser.setTokenId(tokenId);
+		notificationUser.setDeviceId(deviceId);
+		notificationUser.setBranchId(branchId);
+		notificationUser.setRole(role);
+		notificationUser.setCreatedAt(createdAt);
+
+		String saveData = pushnotificationservice.save(notificationUser);
+
+		org.json.simple.JSONObject response = new org.json.simple.JSONObject();
+		org.json.simple.JSONObject success = new org.json.simple.JSONObject();
+		success.put("Success", "Token Generated Suceessfully");
+		response.put("Data", success);
+		System.out.println("final response" + response.toString());
+		return new ResponseEntity<Object>(response, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/fetchToken", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<Object> fetchToken(@RequestBody String jsonRequest,
+			@RequestHeader(name = "Content-Type", required = true) String Content_Type,
+			@RequestHeader(name = "X-Request-ID", required = true) String X_Request_ID) {
+		System.out.println("fetchToken start");
+		System.out.println("request" + jsonRequest);
+		JSONObject jsonObject = new JSONObject(jsonRequest);
+		if (jsonRequest.isEmpty()) {
+			System.out.println("request is empty" + jsonRequest);
+			throw new EmptyInputException("Input cannot be empty");
+		}
+
+		System.out.println("db Call start");
+
+		String userId = jsonObject.getJSONObject("Data").getString("UserId");
+		String tokenId = jsonObject.getJSONObject("Data").getString("TokenId");
+		NotificationUser notificationuser = pushnotificationservice.fetchToken(tokenId);
+		String newUserId = notificationuser.getUserId();
+		System.out.println(newUserId);
+		if (!newUserId.equals(userId)) {
+			org.json.simple.JSONObject response = new org.json.simple.JSONObject();
+			response.put("TokenId", "");
+			response.put("Success", "Token id already exists with another User Id");
+			return new ResponseEntity<Object>(response, HttpStatus.OK);
+		} else if (newUserId.equals(userId)) {
+			org.json.simple.JSONObject response = new org.json.simple.JSONObject();
+			response.put("TokenId", tokenId);
+			response.put("Success", "Fetch Successfully");
+			return new ResponseEntity<Object>(response, HttpStatus.OK);
+		}
+		org.json.simple.JSONObject response = new org.json.simple.JSONObject();
+		response.put("Error", "Error Occured");
+		return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
+	}
+
+	@RequestMapping(value = "/updateToken", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<Object> updateToken(@RequestBody String jsonRequest,
+			@RequestHeader(name = "Content-Type", required = true) String Content_Type,
+			@RequestHeader(name = "X-Request-ID", required = true) String X_Request_ID) {
+		System.out.println("updateToken start");
+		System.out.println("request" + jsonRequest);
+		JSONObject jsonObject = new JSONObject(jsonRequest);
+		if (jsonRequest.isEmpty()) {
+			System.out.println("request is empty" + jsonRequest);
+			throw new EmptyInputException("Input cannot be empty");
+		}
+
+		System.out.println("db Call start");
+
+		String userId = jsonObject.getJSONObject("Data").getString("UserId");
+		String tokenId = jsonObject.getJSONObject("Data").getString("TokenId");
+
+		LocalDateTime updatedAt = LocalDateTime.now();
+		pushnotificationservice.update(tokenId, userId, updatedAt);
+		org.json.simple.JSONObject response = new org.json.simple.JSONObject();
+		org.json.simple.JSONObject success = new org.json.simple.JSONObject();
+		success.put("Success", "Token Updated");
+		response.put("Data", success);
+		System.out.println("final response" + response.toString());
+		return new ResponseEntity<Object>(response, HttpStatus.OK);
+//		}
+	}
+
+	@RequestMapping(value = "/fetchAllTokens", method = RequestMethod.POST, produces = "application/json")
+	public ResponseEntity<Object> fetchAllTokens(@RequestBody String jsonRequest,
+			@RequestHeader(name = "Content-Type", required = true) String Content_Type,
+			@RequestHeader(name = "X-Request-ID", required = true) String X_Request_ID) {
+		System.out.println("fetchAllTokens start");
+		System.out.println("request" + jsonRequest);
+		JSONObject jsonObject = new JSONObject(jsonRequest);
+		if (jsonRequest.isEmpty()) {
+			System.out.println("request is empty" + jsonRequest);
+			throw new EmptyInputException("Input cannot be empty");
+		}
+
+		System.out.println("db Call start");
+
+		String empId = jsonObject.getJSONObject("Data").getString("EmpId");
+		String branchId = jsonObject.getJSONObject("Data").getString("BranchId");
+		if (branchId.isEmpty() && !empId.isEmpty()) {
+			List<NotificationUser> list = pushnotificationservice.fetchTokenByUserId(empId);
+			System.out.println(list);
+			NotificationUser notificationUser = list.get(0);
+			String tokenId = notificationUser.getTokenId();
+			JSONObject Data1 = new JSONObject();
+			Data1.put("Token", tokenId);
+			return new ResponseEntity<Object>(Data1.toString(), HttpStatus.OK);
+		} else if (!branchId.isEmpty() && empId.isEmpty()) {
+			List<NotificationUser> list = pushnotificationservice.fetchTokenByBranchId(branchId);
+			System.out.println(list);
+			JSONArray regIds = new JSONArray();
+			int i = 0;
+			while (i < list.size()) {
+				NotificationUser notificationUser = list.get(i);
+				String tokenId = notificationUser.getTokenId();
+				regIds.put(tokenId);
+				i++;
+			}
+
+			JSONObject Data1 = new JSONObject();
+			Data1.put("Tokens", regIds);
+			return new ResponseEntity<Object>(Data1.toString(), HttpStatus.OK);
+		}
+		List<NotificationUser> list = pushnotificationservice.fetchTokenByUserIdAndBranchId(empId, branchId);
+		System.out.println(list);
+		NotificationUser notificationUser = list.get(0);
+		String tokenId = notificationUser.getTokenId();
+		JSONObject Data1 = new JSONObject();
+		Data1.put("Token", tokenId);
+		return new ResponseEntity<Object>(Data1.toString(), HttpStatus.OK);
+	}
+
+}

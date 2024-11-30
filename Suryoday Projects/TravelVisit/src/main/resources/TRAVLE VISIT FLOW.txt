@@ -1,0 +1,15 @@
+===================
+TARVEL VISIT FLOW : 
+===================
+[1] BRANCH HYGIENE [2] OD_CUSTOMER [3] VISIT_TO [4] LUC
+	[1] Add Activity.
+	[2] Get all Activities by dates.
+	[3] Get Activity by id.
+	[4] Update Activity.
+	[5] Downloand Excel of Activities by dates.
+
+=======
+ROLES :
+=======
+RO | CREDIT_OPS
+=======

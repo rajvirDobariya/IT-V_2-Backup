@@ -1,0 +1,36 @@
+2024-11-07 17:56:00 [restartedMain] INFO  : Starting CounterfeitApplication using Java 1.8.0_202 on sylh10001l1556 with PID 14232 (D:\RAVI\Suryoday Projects\Counterfeit\target\classes started by 92952 in D:\RAVI\Suryoday Projects\Counterfeit)
+2024-11-07 17:56:00 [restartedMain] DEBUG : Running with Spring Boot v2.7.18, Spring v5.3.31
+2024-11-07 17:56:00 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2024-11-07 17:56:02 [restartedMain] DEBUG : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-07 17:56:02 [restartedMain] DEBUG : 19 mappings in 'requestMappingHandlerMapping'
+2024-11-07 17:56:02 [restartedMain] DEBUG : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-07 17:56:02 [restartedMain] DEBUG : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-07 17:56:02 [restartedMain] WARN  : Registering converter from class microsoft.sql.DateTimeOffset to class java.time.OffsetDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-11-07 17:56:02 [restartedMain] INFO  : Started CounterfeitApplication in 1.882 seconds (JVM running for 353.512)
+2024-11-07 17:56:14 [restartedMain] INFO  : Starting CounterfeitApplication using Java 1.8.0_202 on sylh10001l1556 with PID 14232 (D:\RAVI\Suryoday Projects\Counterfeit\target\classes started by 92952 in D:\RAVI\Suryoday Projects\Counterfeit)
+2024-11-07 17:56:14 [restartedMain] DEBUG : Running with Spring Boot v2.7.18, Spring v5.3.31
+2024-11-07 17:56:14 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2024-11-07 17:56:15 [restartedMain] DEBUG : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-07 17:56:15 [restartedMain] DEBUG : 19 mappings in 'requestMappingHandlerMapping'
+2024-11-07 17:56:15 [restartedMain] DEBUG : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-07 17:56:15 [restartedMain] DEBUG : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-07 17:56:15 [restartedMain] WARN  : Registering converter from class microsoft.sql.DateTimeOffset to class java.time.OffsetDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-11-07 17:56:15 [restartedMain] INFO  : Started CounterfeitApplication in 1.196 seconds (JVM running for 366.591)
+2024-11-07 17:56:43 [restartedMain] INFO  : Starting CounterfeitApplication using Java 1.8.0_202 on sylh10001l1556 with PID 14232 (D:\RAVI\Suryoday Projects\Counterfeit\target\classes started by 92952 in D:\RAVI\Suryoday Projects\Counterfeit)
+2024-11-07 17:56:43 [restartedMain] DEBUG : Running with Spring Boot v2.7.18, Spring v5.3.31
+2024-11-07 17:56:43 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2024-11-07 17:56:45 [restartedMain] DEBUG : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-07 17:56:45 [restartedMain] DEBUG : 19 mappings in 'requestMappingHandlerMapping'
+2024-11-07 17:56:45 [restartedMain] DEBUG : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-07 17:56:45 [restartedMain] DEBUG : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-07 17:56:45 [restartedMain] WARN  : Registering converter from class microsoft.sql.DateTimeOffset to class java.time.OffsetDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-11-07 17:56:45 [restartedMain] INFO  : Started CounterfeitApplication in 1.897 seconds (JVM running for 396.785)
+2024-11-07 17:56:47 [restartedMain] INFO  : Starting CounterfeitApplication using Java 1.8.0_202 on sylh10001l1556 with PID 14232 (D:\RAVI\Suryoday Projects\Counterfeit\target\classes started by 92952 in D:\RAVI\Suryoday Projects\Counterfeit)
+2024-11-07 17:56:47 [restartedMain] DEBUG : Running with Spring Boot v2.7.18, Spring v5.3.31
+2024-11-07 17:56:47 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2024-11-07 17:56:48 [restartedMain] DEBUG : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-07 17:56:48 [restartedMain] DEBUG : 19 mappings in 'requestMappingHandlerMapping'
+2024-11-07 17:56:48 [restartedMain] DEBUG : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-07 17:56:48 [restartedMain] DEBUG : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-07 17:56:48 [restartedMain] WARN  : Registering converter from class microsoft.sql.DateTimeOffset to class java.time.OffsetDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-11-07 17:56:48 [restartedMain] INFO  : Started CounterfeitApplication in 1.377 seconds (JVM running for 399.915)

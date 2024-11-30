@@ -1,0 +1,18 @@
+2024-08-29 17:15:13 [restartedMain] DEBUG : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2024-08-29 17:15:13 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 301 ms
+2024-08-29 17:15:14 [restartedMain] DEBUG : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2024-08-29 17:15:14 [restartedMain] DEBUG : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-08-29 17:15:14 [restartedMain] DEBUG : 38 mappings in 'requestMappingHandlerMapping'
+2024-08-29 17:15:14 [restartedMain] DEBUG : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-08-29 17:15:14 [restartedMain] DEBUG : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-08-29 17:15:14 [restartedMain] WARN  : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2024-08-29 17:15:26 [restartedMain] DEBUG : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2024-08-29 17:15:26 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 471 ms
+2024-08-29 17:15:30 [restartedMain] DEBUG : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2024-08-29 17:15:30 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 1385 ms
+2024-08-29 17:15:33 [restartedMain] DEBUG : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2024-08-29 17:15:33 [restartedMain] DEBUG : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-08-29 17:15:33 [restartedMain] DEBUG : 38 mappings in 'requestMappingHandlerMapping'
+2024-08-29 17:15:33 [restartedMain] DEBUG : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-08-29 17:15:33 [restartedMain] DEBUG : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-08-29 17:15:33 [restartedMain] WARN  : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs

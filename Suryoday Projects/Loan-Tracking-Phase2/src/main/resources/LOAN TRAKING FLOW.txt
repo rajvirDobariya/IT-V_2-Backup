@@ -1,0 +1,22 @@
+==================
+[1] HEALTH_CHECK :
+==================
+[1] Add Activity.
+[2] View activities-list by date and by Pan-card.
+[3] View Activity by id.
+[4] Add product check list and queries.
+[5] Download Excel of activities by dates.
+
+============
+NOI-UPDATE :
+============
+[1] Add Activity.
+[2] View activities-list by date and by Pan-card.
+[3] View Activity by id.
+[4] Download Excel of activities by dates.
+
+=======
+ROLEs :
+=======
+RO | CREDIT_OPS
+-------
